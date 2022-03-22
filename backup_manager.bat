@@ -8,7 +8,8 @@ del /q "%logsdir%"
 
 TITLE "Robocopy - Daily Dev Backup %basedir%"
 
-@REM See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy for robocopy commands
+@REM See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy for robocopy commands. 
+@REM And if you use "/mir" command, use it with CAUTION, I heard that it can delete your source files and stuff so be careful. Most of the time just the "/purge" command is more than enough
 
 robocopy "F:\localhost" "%dest%\localhost" /e /purge /xo /tee /log+:"%logsdir%"
 call :NOTIFY "Daily backup operation has been completed.", "Information", "Local Dev Server Backups"
